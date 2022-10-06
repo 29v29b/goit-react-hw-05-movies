@@ -9,7 +9,6 @@ import {
   useLocation,
   Link,
   Outlet,
-  Routes
 } from 'react-router-dom';
 import { getMovieDetails, IMAGE_URL } from '../services/api';
 
@@ -39,8 +38,8 @@ function MovieDetails() {
     getMovie();
   }, [movieId]);
 
-  const onGoBack = () => {
-    history.push(location?.state?.from?.location ?? '/movies');
+  const onReturn = () => {
+    history(location?.state?.from?.location ?? '/');
   };
 
   return (
@@ -49,7 +48,7 @@ function MovieDetails() {
         <div className={css.notFound}>Movie is not found</div>
       ) : (
         <>
-          <button type="button" onClick={onGoBack}>Go back</button>
+          <button type="button" onClick={onReturn} className={css.button}>Go back</button>
           <div className={css.movieContainer}>
             <div className={css.movieImg}>
               <img

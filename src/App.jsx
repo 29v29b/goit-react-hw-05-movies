@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { lazy, Suspense } from 'react';
 import Loader from './components/Loader'
 import Header from './components/Header'
@@ -44,8 +45,8 @@ const App = () => {
           </Route>
           
         </Routes>
+        <ToastContainer autoClose={2000} />
       </Suspense>
-      <ToastContainer autoClose={2000} />
     </>
   );
 }

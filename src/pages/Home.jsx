@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchTrendingMovies } from '../services/api';
 import { Link, useLocation } from 'react-router-dom';
+import css from './Home.module.css';
 
 const Home = () => {
   const location = useLocation();
@@ -18,8 +19,8 @@ const Home = () => {
 
   return (
     <>
-      <h1>Tranding today</h1>
-      <ul>
+      <h1 className={css.title}>Tranding today</h1>
+      <ul className={css.list}>
       {movies &&
         movies.map(
           ({id, title, }) => (            

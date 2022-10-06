@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import css from './Header.module.css';
 
 const Header = () => (
-  <nav>
+  <nav className={css.header}>
     <NavLink to="/" className={css.link}>
       Home
     </NavLink>
