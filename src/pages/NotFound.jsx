@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { cssTransition } from 'react-toastify';
-import css from '/NotFound.module.css'
+import css from './MovieDetails.module.css'
 
 export default function NotFound() {
   const history = useNavigate();
