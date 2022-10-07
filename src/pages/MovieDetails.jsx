@@ -27,7 +27,7 @@ function MovieDetails() {
   const location = useLocation();
   const { pathname } = useMatch("/movies/:movieId/*");
   var url = pathname.match(/^(\/movies\/\d+)/)[1];
-
+  
   useEffect(() => {
     const getMovie = async () => {
       const currentMovie = await getMovieDetails(movieId);
@@ -38,9 +38,9 @@ function MovieDetails() {
     getMovie();
   }, [movieId]);
 
-  const onReturn = () => {
-    history(location?.state?.from?.location ?? '/');
-  };
+  function historyBack() {
+    history(-1);
+  }
 
   return (
     <>
@@ -48,7 +48,7 @@ function MovieDetails() {
         <div className={css.notFound}>Movie is not found</div>
       ) : (
         <>
-          <button type="button" onClick={onReturn} className={css.button}>Go back</button>
+          <button type="button" onClick={historyBack} className={css.button}>Go back</button>
           <div className={css.movieContainer}>
             <div className={css.movieImg}>
               <img
@@ -78,14 +78,16 @@ function MovieDetails() {
       <p>Additional information</p>
       <nav>
         <NavLink
-          to={{ pathname: `${url}/cast`, state: location.state }}
+          to={{ pathname: `${url}/cast`  }}
           className={css.link}
+          state={{location}} replace
         >
           Cast
         </NavLink>
         <NavLink
-          to={{ pathname: `${url}/reviews`, state: location.state }}
+          to={{ pathname: `${url}/reviews`, }}
           className={css.link}
+          state={{location}} replace
         >
           Reviews
         </NavLink>

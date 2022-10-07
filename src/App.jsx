@@ -37,8 +37,8 @@ const App = () => {
 
           <Route path="/movies/:movieId" element={<MovieDetails />}>
 
-          <Route path="cast" element={<MovieCast />}></Route>
-          <Route path="reviews" element={<MovieReview  />}></Route>
+            <Route path="cast" element={<MovieCast />}></Route>
+            <Route path="reviews" element={<MovieReview  />}></Route>
 
           </Route>
 
