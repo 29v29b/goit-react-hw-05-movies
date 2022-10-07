@@ -18,9 +18,9 @@ const MovieDetails = lazy(() =>
     './pages/MovieDetails' 
   )
 );
-const NotFound = lazy(() =>
-  import('./pages/NotFound')
-);
+// const NotFound = lazy(() =>
+//   import('./pages/NotFound')
+// );
 
 const App = () => {
   return (
@@ -28,6 +28,7 @@ const App = () => {
       <Header />
       <Suspense fallback={<Loader />}>
         <Routes>
+          <Route index element={<Home />}/>
           <Route exact path="/" element={<Home />} >
           </Route>
 
@@ -41,7 +42,7 @@ const App = () => {
 
           </Route>
 
-          <Route path="*" element={<NotFound />}>
+          <Route path="*" element={<Home />}>
           </Route>
           
         </Routes>
