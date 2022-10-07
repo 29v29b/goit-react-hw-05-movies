@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { cssTransition } from 'react-toastify';
 import css from './MovieDetails.module.css'
 
-export default function NotFound() {
+function NotFound() {
   const history = useNavigate();
 
   const onReturn = () => {
@@ -17,3 +16,5 @@ export default function NotFound() {
     </>
   );
 }
+
+export default NotFound;
